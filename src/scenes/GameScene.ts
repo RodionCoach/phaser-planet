@@ -5,7 +5,7 @@ import { SetAudio } from "../sceneHooks/SetAudio";
 import { GAME_RESOLUTION, GAME_HEALTH_POINTS, TOTAL_LILIES, DEPTH_LAYERS } from "../utils/constants";
 import { SCORE_LABEL_STYLE, INPUT_NUMBER_STYLE, BUTTON_NUMBER_STYLE, SCORE_STYLE } from "../utils/styles";
 import SoundButton from "../objects/soundButton";
-import { IScore } from "../types";
+import { IScore } from "../typings/types";
 
 class GameScene extends Phaser.Scene {
   currentLifes: number;
