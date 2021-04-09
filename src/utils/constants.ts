@@ -5,6 +5,11 @@ export const GAME_RESOLUTION = {
   height: 600,
 };
 
+export const SOUND_BUTTON_POSITION = {
+  x: 20,
+  y: 20,
+};
+
 export const RULES_TEXT =
   "Phasellus tempor velit tellus, tempus facilisis sem placerat et. Maecenas et risus in tortor bibendum laoreet. Vestibulum vel augue nec erat dignissim ullamcorper vel vel dui. Fusce rutrum libero ornare dolor luctus, sit amet eleifend elit rutrum. \n" +
   "\n" +
@@ -14,9 +19,9 @@ export const RULES_TEXT =
 
 export const TEXT_AREA_CONFIG_FOR_RULES = {
   x: 0,
-  y: 40,
-  width: 622,
-  height: 465,
+  y: 50,
+  width: 600,
+  height: 352,
 };
 
 export const DEPTH_LAYERS = {
@@ -27,12 +32,31 @@ export const DEPTH_LAYERS = {
   four: 4,
 };
 
-export const TOTAL_LILIES = 4;
-
-export const EXAMPLE_BOUNDARY_LIMIT = 0;
-
 export const GAME_HEALTH_POINTS = 5;
 
 export const PATH_SPRITES = "./assets/sprites";
 
-export const SIGNS = ["+", "-", "×", "÷"];
+export const OBJECTS_NUMBER_PER_LEVEL = {
+  level0: {
+    numbersAmount: 3,
+    targetNumber: 5 //from 1 to targetNumber
+  },
+  level1: {
+    numbersAmount: 3,
+    targetNumber: 10 //from 1 to targetNumber
+  },
+  level2: {
+    numbersAmount: 3,
+    targetNumber: 120 //from 1 to targetNumber
+  },
+  level3: {
+    numbersAmount: 4,
+    targetNumber: 1000 //from 1 to targetNumber
+  },
+  level4: {
+    numbersAmount: 5,
+    targetNumber: 1000 //from 1 to targetNumber
+  },
+};
+
+export const TOTAL_EXAMPLES = OBJECTS_NUMBER_PER_LEVEL.level4.numbersAmount;

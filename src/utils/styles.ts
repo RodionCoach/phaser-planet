@@ -4,7 +4,7 @@ export const BUTTON_STYLE = {
   fontFamily: "Lato",
   fontWeight: "900",
   fontStyle: "bold",
-  color: "#2B4666",
+  color: "#ffffff",
   align: "center",
 };
 
@@ -13,7 +13,7 @@ export const COUNTDOWN_STYLE = {
   fontSize: "720px",
   fontWeight: "900",
   fontStyle: "bold",
-  fill: "#FAEBEB",
+  fill: "#A779FE",
   align: "center",
 };
 
@@ -34,41 +34,43 @@ export const RULES_STYLE = {
 
 export const SCORE_TITLE_STYLE = {
   fontFamily: "Lato",
-  fontSize: "22px",
+  fontSize: "28px",
   fontWeight: "900",
   fontStyle: "bold",
   lineSpacing: 4,
-  fill: "#2F4489",
+  fill: "#ffffff",
   align: "center",
 };
 
 export const SCORE_NUMBERS_STYLE = {
   fontFamily: "Lato",
-  fontSize: "62px",
+  fontSize: "48px",
   fontWeight: "900",
   fontStyle: "bold",
   lineSpacing: 4,
-  fill: "#A5C2EA",
+  fill: "#7BF8FF",
   align: "center",
 };
 
 export const SCORE_TEXT_STYLE = {
   fontFamily: "Lato",
-  fontSize: "20px",
-  fontWeight: "900",
-  fontStyle: "bold",
+  fontSize: "28px",
+  fontWeight: "400",
+  fontStyle: "normal",
   lineSpacing: 4,
-  fill: "#2F4489",
+  fill: "#ffffff",
   align: "center",
 };
 
 export const EXAMPLES_STYLE = {
   fontFamily: "Lato",
-  fontSize: "32px",
+  fontSize: "34px",
   fontWeight: "900",
   fontStyle: "bold",
   lineSpacing: 0,
-  fill: "#2B4666",
+  fill: "#ffffff",
+  stroke: '#2b4f8e',
+  strokeThickness: 4,
   align: "right",
   boundsAlignH: "center", // bounds center align horizontally
   boundsAlignV: "middle", // bounds center align vertically
@@ -78,10 +80,28 @@ export const EXAMPLES_STYLE = {
 };
 
 export const SCORE_STYLE = {
-  fontSize: "18px",
+  fontSize: "16px",
   fontFamily: "Lato",
-  fontWeight: "900",
+  fontWeight: "700",
   fontStyle: "bold",
+  color: "#FFFFFE",
+  align: "center",
+};
+
+export const TIMER_STYLE = {
+  fontSize: "20px",
+  fontFamily: "Lato",
+  fontWeight: "700",
+  fontStyle: "bold",
+  color: "#FFFFFE",
+  align: "center",
+};
+
+export const PTS_STYLE = {
+  fontSize: "16px",
+  fontFamily: "Lato",
+  fontWeight: "400",
+  fontStyle: "normal",
   color: "#FFFFFE",
   align: "center",
 };
@@ -96,28 +116,10 @@ export const TITLE_STYLE = {
 };
 
 export const SCORE_LABEL_STYLE = {
-  fontSize: "16px",
+  fontSize: "20px",
   fontFamily: "Lato",
-  fontWeight: "900",
+  fontWeight: "700",
   fontStyle: "bold",
-  color: "#2F4489",
-  align: "center",
-};
-
-export const BUTTON_NUMBER_STYLE = {
-  fontSize: "24px",
-  fixedHeight: 24,
-  fontFamily: "Lato",
-  fontWeight: "400",
-  color: "#333333",
-  align: "center",
-};
-
-export const INPUT_NUMBER_STYLE = {
-  fontSize: "24px",
-  fixedHeight: 24,
-  fontFamily: "Lato",
-  fontWeight: "400",
-  color: "#ffffff",
+  color: "#fda510",
   align: "center",
 };

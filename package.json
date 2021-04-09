@@ -39,9 +39,9 @@
     "extends": "@commitlint/config-conventional"
   },
   "dependencies": {
-    "phaser": "3.50.0",
-    "phaser3-rex-plugins": "1.1.41",
-    "phaser3-rex-plugins-types": "0.1.1"
+    "phaser": "3.54.0",
+    "phaser3-rex-plugins": "1.1.44",
+    "phaser3-rex-plugins-types": "0.1.3"
   },
   "devDependencies": {
     "@babel/core": "7.13.14",
