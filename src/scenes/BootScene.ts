@@ -29,7 +29,8 @@ class BootScene extends Phaser.Scene {
     this.load.multiatlas("buttonBackground", `${PATH_SPRITES}/button/button.json`, `${PATH_SPRITES}/button`);
     this.load.multiatlas("volume", `${PATH_SPRITES}/button/volume.json`, `${PATH_SPRITES}/button`);
     this.load.multiatlas("gui", `${PATH_SPRITES}/gui/gui.json`, `${PATH_SPRITES}/gui`);
-    this.load.image("backgroundGame", "./assets/img/Back_background_with_score.png");
+    this.load.multiatlas("sun", `${PATH_SPRITES}/sun/sun.json`, `${PATH_SPRITES}/sun`);
+    this.load.image("backgroundGame", "./assets/img/Back_background.png");
     this.load.image("backgroundPrimary", "./assets/img/Back_background_primary.png");
     this.load.image("backgroundSecondary", "./assets/img/Back_background_secondary.png");
     this.load.image("backgroundRules", "./assets/img/Back_background_card.png");
@@ -42,6 +43,8 @@ class BootScene extends Phaser.Scene {
     this.load.audio("missed", "./assets/sounds/missed_problem.mp3");
     this.load.audio("gameOver", "./assets/sounds/end_of_the_game.mp3");
     this.load.audio("ufoBeam", "./assets/sounds/ufo_beam.mp3");
+
+    this.load.glsl("sunShader", "./assets/shaders/sun.glsl");
 
     this.load.rexWebFont({
       google: {
