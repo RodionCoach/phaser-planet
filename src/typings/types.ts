@@ -1,8 +1,8 @@
-import type GameScene from "../scenes/GameScene";
-import type PauseScene from "../scenes/PauseScene";
-import type RulesScene from "../scenes/RulesScene";
-import type StartScene from "../scenes/StartScene";
-import type EndScene from "../scenes/EndScene";
+import type GameScene from "scenes/GameScene";
+import type PauseScene from "scenes/PauseScene";
+import type RulesScene from "scenes/RulesScene";
+import type StartScene from "scenes/StartScene";
+import type EndScene from "scenes/EndScene";
 import BasePlugin = Phaser.Plugins.BasePlugin;
 
 export interface IInitData {
@@ -24,7 +24,7 @@ export interface ILevelConfig {
 export type RandomPlacePluginType = {
   randomPlace: Function;
   start: Function;
-} & BasePlugin
+} & BasePlugin;
 
 export interface IToggleAudioConfig {
   scene: AllScenesType;

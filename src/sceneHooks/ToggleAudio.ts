@@ -1,4 +1,4 @@
-import { IToggleAudioConfig } from "../typings/types";
+import { IToggleAudioConfig } from "typings/types";
 
 export const ToggleAudio = ({ scene, texture, frameOn, frameOff }: IToggleAudioConfig) => {
   if (!scene.sound.mute) {

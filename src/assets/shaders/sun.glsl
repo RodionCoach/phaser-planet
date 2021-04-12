@@ -36,18 +36,19 @@ float snoise(vec3 uv, float res)
 void main()
 {
   vec2 p = 2.0 * (fragCoord.xy/resolution) - 1.0;
-  p.x -= 1.05;
+  p.x -= 0.95;
   p.y *= 0.125;
   p.y += 0.11;
-  float color = 3.0 - (3.*(10.*p.y + sin(p.x * 1.5)));
+  float t = time * 0.35;
+  float color = 4.0 - (4.*(10.*p.y + sin(p.x * 1.75)));
 
-  vec3 coord = vec3(p.y - sin(p.x + 0.75) * 1.125 + cos(p.x - 0.75) * 1.125, p.y * 0.5, p.x * 0.75);
+  vec3 coord = vec3(p.y - sin(p.x + 0.75) * 1.125 + cos(p.x - 0.75) * 1.125, p.y * 0.125, p.x * 0.8);
 
   for(int i = 1; i <= 2; i++)
   {
     float power = pow(1.5, float(i));
-    color += (1.5 / power) * snoise(coord + vec3(-time*.025,-time*.05, -time*.01), power*16.);
+    color += pow((2.0 / power) * snoise(coord + vec3(-t*.0125,-t*.05, -t*.01), power*8.), 2.0);
   }
-  vec3 totalColor = vec3(color, pow(max(color,0.),1.)*0.4, pow(max(color,0.),1.)*0.015);
+  vec3 totalColor = vec3(color, pow(max(color,0.),1.)*0.4, pow(max(color,0.),1.)*0.015) * 0.5;
   gl_FragColor = vec4( totalColor, max(max(totalColor.r, totalColor.g), totalColor.b));
 }

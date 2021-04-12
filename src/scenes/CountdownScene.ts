@@ -1,5 +1,5 @@
-import { GAME_RESOLUTION } from "../utils/constants";
-import { COUNTDOWN_STYLE } from "../utils/styles";
+import { GAME_RESOLUTION } from "utils/constants";
+import { COUNTDOWN_STYLE } from "utils/styles";
 
 class CountdownScene extends Phaser.Scene {
   constructor() {

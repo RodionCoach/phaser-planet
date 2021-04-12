@@ -4,7 +4,7 @@ export const BUTTON_STYLE = {
   fontFamily: "Lato",
   fontWeight: "900",
   fontStyle: "bold",
-  color: "#ffffff",
+  color: "#FFFFFF",
   align: "center",
 };
 
@@ -38,7 +38,7 @@ export const SCORE_TITLE_STYLE = {
   fontWeight: "900",
   fontStyle: "bold",
   lineSpacing: 4,
-  fill: "#ffffff",
+  fill: "#FFFFFF",
   align: "center",
 };
 
@@ -58,7 +58,7 @@ export const SCORE_TEXT_STYLE = {
   fontWeight: "400",
   fontStyle: "normal",
   lineSpacing: 4,
-  fill: "#ffffff",
+  fill: "#FFFFFF",
   align: "center",
 };
 
@@ -68,8 +68,8 @@ export const EXAMPLES_STYLE = {
   fontWeight: "900",
   fontStyle: "bold",
   lineSpacing: 0,
-  fill: "#ffffff",
-  stroke: '#2b4f8e',
+  fill: "#FFFFFF",
+  stroke: "#2B4B8E",
   strokeThickness: 4,
   align: "right",
   boundsAlignH: "center", // bounds center align horizontally
@@ -120,6 +120,6 @@ export const SCORE_LABEL_STYLE = {
   fontFamily: "Lato",
   fontWeight: "700",
   fontStyle: "bold",
-  color: "#fda510",
+  color: "#FdA510",
   align: "center",
 };

@@ -39,23 +39,23 @@ export const PATH_SPRITES = "./assets/sprites";
 export const OBJECTS_NUMBER_PER_LEVEL = {
   level0: {
     numbersAmount: 3,
-    targetNumber: 5 //from 1 to targetNumber
+    targetNumber: 5, //from 1 to targetNumber
   },
   level1: {
     numbersAmount: 3,
-    targetNumber: 10 //from 1 to targetNumber
+    targetNumber: 10, //from 1 to targetNumber
   },
   level2: {
     numbersAmount: 3,
-    targetNumber: 120 //from 1 to targetNumber
+    targetNumber: 120, //from 1 to targetNumber
   },
   level3: {
     numbersAmount: 4,
-    targetNumber: 1000 //from 1 to targetNumber
+    targetNumber: 1000, //from 1 to targetNumber
   },
   level4: {
     numbersAmount: 5,
-    targetNumber: 1000 //from 1 to targetNumber
+    targetNumber: 1000, //from 1 to targetNumber
   },
 };
 
