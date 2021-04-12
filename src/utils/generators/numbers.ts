@@ -1,66 +1,65 @@
-import { SIGNS } from "../constants";
-import { signGenerator } from "./signs";
+import { shuffle } from "utils/shuffle";
+import { numbersArrayGenerator } from "utils/generators/numbersArrayGenerator";
+
 interface IExample {
-  number1: number;
-  sign: string;
-  number2: number;
-  answer: number;
+  id: number;
+  text: string;
 }
 
-type Example = (sign?: string, max?: number) => IExample;
+type ExampleType = (maxNumber: number, numbersAmount: number) => IExample[];
 
-const division: Example = (sign = "") => {
-  const example = multiplication(SIGNS[2], 4);
-  return {
-    number1: example.answer,
-    sign: sign,
-    number2: example.number1,
-    answer: example.answer / example.number1,
-  };
-};
-const multiplication: Example = (sign = "", max = 9) => {
-  const number1 = Phaser.Math.Between(1, 9);
-  const number2 = number1 > max ? Phaser.Math.Between(1, 9 - (number1 - max)) : Phaser.Math.Between(1, 9);
-  return {
-    number1: number1,
-    sign: sign,
-    number2: number2,
-    answer: number1 * number2,
-  };
-};
-const subtraction: Example = (sign = "") => {
-  const number1 = Phaser.Math.Between(1, 25);
-  const number2 = Phaser.Math.Between(1, number1);
-  return {
-    number1: number1,
-    sign: sign,
-    number2: number2,
-    answer: number1 - number2,
-  };
-};
-const addition: Example = (sign = "") => {
-  const number1 = Phaser.Math.Between(1, 25);
-  const number2 = Phaser.Math.Between(1, 9);
-  return {
-    number1: number1,
-    sign: sign,
-    number2: number2,
-    answer: number1 + number2,
-  };
-};
-
-export const exampleGenerator: Example = () => {
-  const sign = signGenerator(SIGNS);
-  switch (sign) {
-    case SIGNS[0]:
-      return addition(sign);
-    case SIGNS[1]:
-      return subtraction(sign);
-    case SIGNS[2]:
-      return multiplication(sign, 9);
-    case SIGNS[3]:
-      return division(sign);
-    default:
-      return addition(SIGNS[0]);
+const generateAddition = (value: number) => {
+  let string = `${value}`;
+  if (string.length <= 2) {
+    const tmpNumber1 = string.length === 1 ? Phaser.Math.Between(1, value - 1) : Phaser.Math.Between(1, 9);
+    const tmpNumber2 = value - tmpNumber1;
+    string = `${tmpNumber2} + ${tmpNumber1}`;
   }
+  return string;
+};
+
+const generateSubtraction = (value: number) => {
+  let string = `${value}`;
+  if (string.length <= 2) {
+    const tmpNumber1 = Phaser.Math.Between(value + 1, value + 9);
+    const tmpNumber2 = tmpNumber1 - value;
+    string = `${tmpNumber1} - ${tmpNumber2}`;
+  }
+  return string;
+};
+
+const generateText = (value: number) => {
+  return (Math.random() > 0.5 && value < 90) || value === 1 ? generateSubtraction(value) : generateAddition(value);
+};
+
+const checkTwoDigitalElements = (array: Array<number>, numbersAmount: number) => {
+  let count = 0;
+  for (let i = 0; i < numbersAmount; i += 1) {
+    if (`${array[i]}`.length <= 2) {
+      count += 1;
+    }
+  }
+  return count;
+};
+
+export const exampleGenerator: ExampleType = (maxNumber, numbersAmount) => {
+  const randArray = shuffle(numbersArrayGenerator(maxNumber));
+  const count = checkTwoDigitalElements(randArray, numbersAmount);
+  const indexForExample = Phaser.Math.Between(0, count - 1);
+  const tmpArray = Array.from({ length: numbersAmount }, (item, index) => {
+    return randArray[index];
+  }).sort((a, b) => {
+    return a - b;
+  });
+
+  return Array.from({ length: numbersAmount }, (item, index) => {
+    let string = `${tmpArray[index]}`;
+    if (index === indexForExample) {
+      string = generateText(tmpArray[index]);
+    }
+    return {
+      id: index,
+      text: string,
+    };
+  });
 };

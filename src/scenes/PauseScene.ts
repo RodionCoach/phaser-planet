@@ -1,7 +1,7 @@
-import { DEPTH_LAYERS, GAME_RESOLUTION } from "../utils/constants";
-import { BUTTON_STYLE } from "../utils/styles";
-import SoundButton from "../objects/soundButton";
-import { GUIContainer } from "../objects/guiContainer";
+import { DEPTH_LAYERS, GAME_RESOLUTION, SOUND_BUTTON_POSITION } from "utils/constants";
+import { BUTTON_STYLE } from "utils/styles";
+import SoundButton from "objects/soundButton";
+import { GUIContainer } from "objects/guiContainer";
 
 class PauseScene extends Phaser.Scene {
   soundControl: SoundButton;
@@ -13,12 +13,12 @@ class PauseScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(0, 0, "backgroundMenu", "menu_background.png").setOrigin(0);
+    this.add.image(0, 0, "backgroundPrimary").setOrigin(0);
 
     this.soundControl = new SoundButton({
       scene: this,
-      x: 15,
-      y: 15,
+      x: SOUND_BUTTON_POSITION.x,
+      y: SOUND_BUTTON_POSITION.y,
       texture: "volume",
       frameOn: "default.png",
       frameOff: "pressed.png",
@@ -29,7 +29,7 @@ class PauseScene extends Phaser.Scene {
       .setName("containerButton")
       .setDepth(DEPTH_LAYERS.one);
 
-    const distanceBetweenButtons = 30;
+    const distanceBetweenButtons = 25;
 
     const buttonRestart = new GUIContainer({
       scene: this,

@@ -1,4 +1,4 @@
-import { PATH_SPRITES } from "../utils/constants";
+import { PATH_SPRITES } from "utils/constants";
 
 class BootScene extends Phaser.Scene {
   constructor() {
@@ -25,23 +25,17 @@ class BootScene extends Phaser.Scene {
       this.scene.start("StartScene");
     });
 
-    this.load.multiatlas("background0", `${PATH_SPRITES}/background/background0.json`, `${PATH_SPRITES}/background`);
-    this.load.multiatlas("background", `${PATH_SPRITES}/background/background.json`, `${PATH_SPRITES}/background`);
-    this.load.multiatlas(
-      "backgroundMenu",
-      `${PATH_SPRITES}/background/backgroundMenu.json`,
-      `${PATH_SPRITES}/background`,
-    );
+    this.load.multiatlas("planets", `${PATH_SPRITES}/planets/planets.json`, `${PATH_SPRITES}/planets`);
     this.load.multiatlas("buttonBackground", `${PATH_SPRITES}/button/button.json`, `${PATH_SPRITES}/button`);
     this.load.multiatlas("volume", `${PATH_SPRITES}/button/volume.json`, `${PATH_SPRITES}/button`);
-    this.load.multiatlas("set", `${PATH_SPRITES}/button/set.json`, `${PATH_SPRITES}/button`);
-    this.load.multiatlas("reset", `${PATH_SPRITES}/button/reset.json`, `${PATH_SPRITES}/button`);
-    this.load.multiatlas("pause", `${PATH_SPRITES}/button/pause.json`, `${PATH_SPRITES}/button`);
-    this.load.multiatlas("digital", `${PATH_SPRITES}/button/digital.json`, `${PATH_SPRITES}/button`);
-    this.load.multiatlas("health", `${PATH_SPRITES}/gui/health.json`, `${PATH_SPRITES}/gui`);
-    this.load.multiatlas("inputField", `${PATH_SPRITES}/gui/inputField.json`, `${PATH_SPRITES}/gui`);
-    this.load.image("divisionSign", "./assets/img/divisionSign.png");
-    this.load.multiatlas("cow", `${PATH_SPRITES}/cow/cow.json`, `${PATH_SPRITES}/cow`);
+    this.load.multiatlas("gui", `${PATH_SPRITES}/gui/gui.json`, `${PATH_SPRITES}/gui`);
+    this.load.multiatlas("sun", `${PATH_SPRITES}/sun/sun.json`, `${PATH_SPRITES}/sun`);
+    this.load.image("backgroundGame", "./assets/img/Back_background.png");
+    this.load.image("backgroundPrimary", "./assets/img/Back_background_primary.png");
+    this.load.image("backgroundSecondary", "./assets/img/Back_background_secondary.png");
+    this.load.image("backgroundRules", "./assets/img/Back_background_card.png");
+    this.load.image("backgroundScore", "./assets/img/Back_background_score.png");
+    this.load.image("pause", "./assets/img/pause.png");
 
     this.load.audio("background", "./assets/sounds/background.mp3");
     this.load.audio("solved", "./assets/sounds/solved_problem.mp3");
@@ -50,9 +44,7 @@ class BootScene extends Phaser.Scene {
     this.load.audio("gameOver", "./assets/sounds/end_of_the_game.mp3");
     this.load.audio("ufoBeam", "./assets/sounds/ufo_beam.mp3");
 
-    this.load.glsl("ufoLightShader", "./assets/shaders/ufoLight.glsl");
-    this.load.image("backForShader", "./assets/img/background.png");
-    this.load.image("lightForShader", "./assets/img/light.png");
+    this.load.glsl("sunShader", "./assets/shaders/sun.glsl");
 
     this.load.rexWebFont({
       google: {

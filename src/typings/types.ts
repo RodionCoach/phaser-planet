@@ -1,8 +1,9 @@
-import GameScene from "../scenes/GameScene";
-import PauseScene from "../scenes/PauseScene";
-import RulesScene from "../scenes/RulesScene";
-import StartScene from "../scenes/StartScene";
-import EndScene from "../scenes/EndScene";
+import type GameScene from "scenes/GameScene";
+import type PauseScene from "scenes/PauseScene";
+import type RulesScene from "scenes/RulesScene";
+import type StartScene from "scenes/StartScene";
+import type EndScene from "scenes/EndScene";
+import BasePlugin = Phaser.Plugins.BasePlugin;
 
 export interface IInitData {
   currentScore: number;
@@ -13,10 +14,20 @@ export interface IScore {
   textObject: Phaser.GameObjects.Text;
 }
 
-type AllScenes = GameScene | PauseScene | RulesScene | StartScene | EndScene;
+type AllScenesType = GameScene | PauseScene | RulesScene | StartScene | EndScene;
+
+export interface ILevelConfig {
+  numbersAmount: number;
+  targetNumber: number;
+}
+
+export type RandomPlacePluginType = {
+  randomPlace: Function;
+  start: Function;
+} & BasePlugin;
 
 export interface IToggleAudioConfig {
-  scene: AllScenes;
+  scene: AllScenesType;
   texture: string;
   frameOn: string;
   frameOff: string;

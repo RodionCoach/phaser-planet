@@ -4,8 +4,8 @@
 			"image": "button.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 802,
-				"h": 155
+				"w": 516,
+				"h": 62
 			},
 			"scale": 1,
 			"frames": [
@@ -14,62 +14,62 @@
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 800,
-						"h": 51
+						"w": 170,
+						"h": 60
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 800,
-						"h": 51
+						"w": 170,
+						"h": 60
 					},
 					"frame": {
 						"x": 1,
 						"y": 1,
-						"w": 800,
-						"h": 51
+						"w": 170,
+						"h": 60
 					}
 				},
 				{
 					"filename": "hover.png",
 					"rotated": false,
-					"trimmed": true,
+					"trimmed": false,
 					"sourceSize": {
-						"w": 800,
-						"h": 51
+						"w": 170,
+						"h": 60
 					},
 					"spriteSourceSize": {
 						"x": 0,
-						"y": 2,
-						"w": 800,
-						"h": 49
+						"y": 0,
+						"w": 170,
+						"h": 60
 					},
 					"frame": {
-						"x": 1,
-						"y": 54,
-						"w": 800,
-						"h": 49
+						"x": 173,
+						"y": 1,
+						"w": 170,
+						"h": 60
 					}
 				},
 				{
 					"filename": "pressed.png",
 					"rotated": false,
-					"trimmed": true,
+					"trimmed": false,
 					"sourceSize": {
-						"w": 800,
-						"h": 51
+						"w": 170,
+						"h": 60
 					},
 					"spriteSourceSize": {
 						"x": 0,
-						"y": 2,
-						"w": 800,
-						"h": 49
+						"y": 0,
+						"w": 170,
+						"h": 60
 					},
 					"frame": {
-						"x": 1,
-						"y": 105,
-						"w": 800,
-						"h": 49
+						"x": 345,
+						"y": 1,
+						"w": 170,
+						"h": 60
 					}
 				}
 			]
@@ -78,6 +78,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:3b9616e95598c0de38ca3b37404a2a55:7ac57d9b2cfb2ec1fbbf9aa81ec45574:c39245c3a59c1712d97d26c862b4cbc5$"
+		"smartupdate": "$TexturePacker:SmartUpdate:6ea5d1dcae5bb16e531ff4dbc7affb37:a18c7365bb9a60b1e8ef6f91bbc64a0e:c39245c3a59c1712d97d26c862b4cbc5$"
 	}
 }

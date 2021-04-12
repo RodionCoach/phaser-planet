@@ -1,5 +1,5 @@
-import { GAME_RESOLUTION } from "../utils/constants";
-import { COUNTDOWN_STYLE } from "../utils/styles";
+import { GAME_RESOLUTION } from "utils/constants";
+import { COUNTDOWN_STYLE } from "utils/styles";
 
 class CountdownScene extends Phaser.Scene {
   constructor() {
@@ -9,7 +9,7 @@ class CountdownScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(0, 0, "backgroundMenu", "menu_background.png").setOrigin(0);
+    this.add.image(0, 0, "backgroundSecondary").setOrigin(0);
 
     let count = 3;
 

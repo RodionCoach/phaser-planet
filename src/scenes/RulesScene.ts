@@ -1,7 +1,13 @@
-import { RULES_TEXT, GAME_RESOLUTION, TEXT_AREA_CONFIG_FOR_RULES, DEPTH_LAYERS } from "../utils/constants";
-import { BUTTON_STYLE, RULES_STYLE } from "../utils/styles";
-import SoundButton from "../objects/soundButton";
-import { GUIContainer } from "../objects/guiContainer";
+import {
+  RULES_TEXT,
+  GAME_RESOLUTION,
+  TEXT_AREA_CONFIG_FOR_RULES,
+  DEPTH_LAYERS,
+  SOUND_BUTTON_POSITION,
+} from "utils/constants";
+import { BUTTON_STYLE, RULES_STYLE } from "utils/styles";
+import SoundButton from "objects/soundButton";
+import { GUIContainer } from "objects/guiContainer";
 
 class RulesScene extends Phaser.Scene {
   soundControl: SoundButton;
@@ -13,12 +19,12 @@ class RulesScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(0, 0, "backgroundMenu", "menu_background.png").setOrigin(0);
+    this.add.image(0, 0, "backgroundRules").setOrigin(0);
 
     this.soundControl = new SoundButton({
       scene: this,
-      x: 15,
-      y: 15,
+      x: SOUND_BUTTON_POSITION.x,
+      y: SOUND_BUTTON_POSITION.y,
       texture: "volume",
       frameOn: "default.png",
       frameOff: "pressed.png",
@@ -29,11 +35,6 @@ class RulesScene extends Phaser.Scene {
       .setName("textArea")
       .setDepth(DEPTH_LAYERS.one);
 
-    const back = this.add
-      .image(0, -TEXT_AREA_CONFIG_FOR_RULES.y, "backgroundMenu", "howtoplay_background.png")
-      .setOrigin(0.5);
-    container.add(back);
-
     const rulesText = this.add.text(0, -TEXT_AREA_CONFIG_FOR_RULES.y, RULES_TEXT, RULES_STYLE).setOrigin(0.5);
     container.add(rulesText);
 
@@ -41,7 +42,7 @@ class RulesScene extends Phaser.Scene {
       scene: this,
       name: "buttonReturn",
       x: 0,
-      y: TEXT_AREA_CONFIG_FOR_RULES.height / 2 + TEXT_AREA_CONFIG_FOR_RULES.y / 3,
+      y: TEXT_AREA_CONFIG_FOR_RULES.height / 2 + TEXT_AREA_CONFIG_FOR_RULES.y / 2,
       text: "MAIN MENU",
       textStyle: BUTTON_STYLE,
       texture: "buttonBackground",
