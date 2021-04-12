@@ -1,15 +1,15 @@
-import ExampleSpawner from "../sprites/example/ExampleSpawner";
-import { SetAudio } from "../sceneHooks/SetAudio";
+import ExampleSpawner from "sprites/example/ExampleSpawner";
+import { SetAudio } from "sceneHooks/SetAudio";
 import {
   GAME_RESOLUTION,
   GAME_HEALTH_POINTS,
   DEPTH_LAYERS,
   SOUND_BUTTON_POSITION,
-  OBJECTS_NUMBER_PER_LEVEL
-} from "../utils/constants";
-import { SCORE_LABEL_STYLE, TIMER_STYLE, SCORE_STYLE, PTS_STYLE } from "../utils/styles";
-import SoundButton from "../objects/soundButton";
-import { IScore } from "../typings/types";
+  OBJECTS_NUMBER_PER_LEVEL,
+} from "utils/constants";
+import { SCORE_LABEL_STYLE, TIMER_STYLE, SCORE_STYLE, PTS_STYLE } from "utils/styles";
+import SoundButton from "objects/soundButton";
+import { IScore } from "typings/types";
 
 class GameScene extends Phaser.Scene {
   currentLifes: number;
@@ -71,6 +71,29 @@ class GameScene extends Phaser.Scene {
       .setOrigin(0.5, 0)
       .setDepth(DEPTH_LAYERS.three);
 
+    this.add
+      .shader("sunShader", GAME_RESOLUTION.width / 2, GAME_RESOLUTION.height, GAME_RESOLUTION.width, 120)
+      .setOrigin(0.5, 1.0);
+    this.add
+      .image(0, GAME_RESOLUTION.height, "sun", "sun.png")
+      .setOrigin(0, 1.0)
+      .setDepth(DEPTH_LAYERS.three).alpha = 0.85;
+    this.add
+      .image(0, GAME_RESOLUTION.height, "sun", "score.png")
+      .setAngle(-10.0)
+      .setOrigin(0, 1.0)
+      .setDepth(DEPTH_LAYERS.three);
+
+    this.add
+      .shader("sunShader", GAME_RESOLUTION.width / 2, GAME_RESOLUTION.height, GAME_RESOLUTION.width, 120)
+      .setOrigin(0.5, 1.0);
+    this.add.image(0, GAME_RESOLUTION.height, "sun", "sun.png").setOrigin(0, 1.0).setDepth(DEPTH_LAYERS.three);
+    this.add
+      .image(0, GAME_RESOLUTION.height, "sun", "score.png")
+      .setAngle(-10.0)
+      .setOrigin(0, 1.0)
+      .setDepth(DEPTH_LAYERS.three).alpha = 0.75;
+
     this.initialTime = 120;
     const timer = this.time.addEvent({
       delay: 1000,
@@ -84,14 +107,10 @@ class GameScene extends Phaser.Scene {
         }
       },
       callbackScope: this,
-      loop: true
+      loop: true,
     });
 
-      this.plusPts = this.add
-      .text(71, 458, "", PTS_STYLE)
-      .setOrigin(1)
-      .setDepth(DEPTH_LAYERS.three)
-      .setVisible(false);
+    this.plusPts = this.add.text(71, 458, "", PTS_STYLE).setOrigin(1).setDepth(DEPTH_LAYERS.three).setVisible(false);
     this.add.text(20, 398, "Score", SCORE_LABEL_STYLE).setOrigin(0).setDepth(DEPTH_LAYERS.three);
 
     this.sound.add("background");
@@ -105,10 +124,10 @@ class GameScene extends Phaser.Scene {
     SetAudio(this, "background", 0.4, true);
   }
 
-  FormatTime(seconds: number){
+  FormatTime(seconds: number) {
     const minutes = Math.floor(seconds / 60);
-    let partInSeconds = `${seconds % 60}`;
-    partInSeconds = `${partInSeconds}`.padStart(2,'0');
+    const partInSeconds = `${seconds % 60}`.padStart(2, "0");
+
     return `${minutes}:${partInSeconds}`;
   }
 

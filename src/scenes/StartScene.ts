@@ -1,8 +1,8 @@
-import {DEPTH_LAYERS, GAME_RESOLUTION, SOUND_BUTTON_POSITION} from "../utils/constants";
-import { BUTTON_STYLE } from "../utils/styles";
-import { SetAudio } from "../sceneHooks/SetAudio";
-import SoundButton from "../objects/soundButton";
-import { GUIContainer } from "../objects/guiContainer";
+import { DEPTH_LAYERS, GAME_RESOLUTION, SOUND_BUTTON_POSITION } from "utils/constants";
+import { BUTTON_STYLE } from "utils/styles";
+import { SetAudio } from "sceneHooks/SetAudio";
+import SoundButton from "objects/soundButton";
+import { GUIContainer } from "objects/guiContainer";
 
 class StartScene extends Phaser.Scene {
   soundControl: SoundButton;

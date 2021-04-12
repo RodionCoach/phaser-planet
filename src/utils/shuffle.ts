@@ -14,7 +14,7 @@ export const shuffle = (array: Array<number>) => {
   let i = array.length;
   let j = 0;
   let temp = 0;
-  let delta = array.length === 1000 ? 0.1 : 0;
+  const delta = array.length === 1000 ? 0.1 : 0;
   while (i--) {
     j = Math.floor((Math.random() + delta) * (i + 1));
     temp = array[i];
@@ -23,4 +23,4 @@ export const shuffle = (array: Array<number>) => {
   }
 
   return array;
-}
+};

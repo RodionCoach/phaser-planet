@@ -1,9 +1,9 @@
-import {DEPTH_LAYERS, GAME_RESOLUTION, SOUND_BUTTON_POSITION} from "../utils/constants";
-import { BUTTON_STYLE, SCORE_TITLE_STYLE, SCORE_NUMBERS_STYLE, SCORE_TEXT_STYLE } from "../utils/styles";
-import { SetAudio } from "../sceneHooks/SetAudio";
-import SoundButton from "../objects/soundButton";
-import { GUIContainer } from "../objects/guiContainer";
-import { IInitData } from "../typings/types";
+import { DEPTH_LAYERS, GAME_RESOLUTION, SOUND_BUTTON_POSITION } from "utils/constants";
+import { BUTTON_STYLE, SCORE_TITLE_STYLE, SCORE_NUMBERS_STYLE, SCORE_TEXT_STYLE } from "utils/styles";
+import { SetAudio } from "sceneHooks/SetAudio";
+import SoundButton from "objects/soundButton";
+import { GUIContainer } from "objects/guiContainer";
+import { IInitData } from "typings/types";
 
 class EndScene extends Phaser.Scene {
   currentScore: number;
@@ -39,6 +39,7 @@ class EndScene extends Phaser.Scene {
       .setDepth(DEPTH_LAYERS.one);
 
     const distanceBetweenButtons = 20;
+    const buttonGroupPositionY = 95;
 
     this.add.image(0, 0, "backgroundSecondary").setOrigin(0);
     this.add.image(GAME_RESOLUTION.width / 2, GAME_RESOLUTION.height / 2, "backgroundScore").setOrigin(0.475, 0.5);
@@ -54,7 +55,7 @@ class EndScene extends Phaser.Scene {
       scene: this,
       name: "buttonRestart",
       x: 0,
-      y: 95,
+      y: buttonGroupPositionY,
       text: "PLAY AGAIN",
       textStyle: BUTTON_STYLE,
       texture: "buttonBackground",
@@ -72,7 +73,7 @@ class EndScene extends Phaser.Scene {
       scene: this,
       name: "buttonReturn",
       x: 0,
-      y: 95 + buttonRestart.sprite.height + distanceBetweenButtons,
+      y: buttonGroupPositionY + buttonRestart.sprite.height + distanceBetweenButtons,
       text: "MAIN MENU",
       textStyle: BUTTON_STYLE,
       texture: "buttonBackground",

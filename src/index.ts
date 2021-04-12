@@ -1,11 +1,11 @@
 import "phaser";
-import BootScene from "./scenes/BootScene";
-import StartScene from "./scenes/StartScene";
-import GameScene from "./scenes/GameScene";
-import PauseScene from "./scenes/PauseScene";
-import RulesScene from "./scenes/RulesScene";
-import CountdownScene from "./scenes/CountdownScene";
-import EndScene from "./scenes/EndScene";
+import BootScene from "scenes/BootScene";
+import StartScene from "scenes/StartScene";
+import GameScene from "scenes/GameScene";
+import PauseScene from "scenes/PauseScene";
+import RulesScene from "scenes/RulesScene";
+import CountdownScene from "scenes/CountdownScene";
+import EndScene from "scenes/EndScene";
 import WebFontLoaderPlugin from "phaser3-rex-plugins/plugins/webfontloader-plugin.js";
 import RandomPlacePlugin from "phaser3-rex-plugins/plugins/randomplace-plugin.js";
 
@@ -35,9 +35,9 @@ const config = {
         start: true,
       },
       {
-        key: 'rexRandomPlace',
+        key: "rexRandomPlace",
         plugin: RandomPlacePlugin,
-        start: true
+        start: true,
       },
     ],
   },
