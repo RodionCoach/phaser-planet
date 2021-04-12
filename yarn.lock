@@ -2954,9 +2954,9 @@ phaser3-rex-plugins@1.1.44:
     webfontloader "^1.6.28"
 
 phaser@*:
-  version "3.53.1"
-  resolved "https://registry.yarnpkg.com/phaser/-/phaser-3.53.1.tgz#1ba603ce5e4e6d5028cdd411a5a5c0ef0f75fc86"
-  integrity sha512-yvzKotQLhdsaEfS7EdQodosUV9pvcNPcqgjh7mPzVPPZXeaUfwWu4spwgGxU4ohTckVMd2JXbOrTymXF5Qs1Dg==
+  version "3.54.0"
+  resolved "https://registry.yarnpkg.com/phaser/-/phaser-3.54.0.tgz#46b191e46059aab2a9a57f78525c60b595767eee"
+  integrity sha512-/1XVI6J2siS0OGwJez7vLbRjars1zb//EvJdYMVyd3wNTUf5DHrvYUj1f6TsEISr4vjnbrNtS66QIuPbGU8x6A==
   dependencies:
     eventemitter3 "^4.0.7"
     path "^0.12.7"
