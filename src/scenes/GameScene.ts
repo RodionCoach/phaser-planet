@@ -144,7 +144,7 @@ class GameScene extends Phaser.Scene {
   }
 
   SpawnObjects() {
-    this.exampleSpawner = new ExampleSpawner(this, OBJECTS_NUMBER_PER_LEVEL.level4);
+    this.exampleSpawner = new ExampleSpawner(this, OBJECTS_NUMBER_PER_LEVEL.level3);
     this.exampleSpawner.orderEventEmitter.on("rightOrder", () => {
       this.UpdateScore(100);
       this.SetAnswer(this.winMessage, this.exampleSpawner);
