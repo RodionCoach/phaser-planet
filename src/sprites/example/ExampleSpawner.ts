@@ -49,7 +49,7 @@ export default class ExampleSpawner extends Phaser.GameObjects.GameObject {
       this.levelConfig = levelConfig;
     }
     this.order = 0;
-    const examples = exampleGenerator(this.levelConfig.targetNumber, this.levelConfig.numbersAmount);
+    const examples = exampleGenerator(this.levelConfig);
     const randArrayForPlanetSprite = shuffle(numbersArrayGenerator(5));
     this.examples.forEach((exampleContainer, index) => {
       if (examples[index]) {

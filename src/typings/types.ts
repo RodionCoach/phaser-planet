@@ -19,6 +19,7 @@ type AllScenesType = GameScene | PauseScene | RulesScene | StartScene | EndScene
 export interface ILevelConfig {
   numbersAmount: number;
   targetNumber: number;
+  isExpression?: boolean;
 }
 
 export type RandomPlacePluginType = {

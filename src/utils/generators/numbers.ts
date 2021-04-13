@@ -1,12 +1,13 @@
 import { shuffle } from "utils/shuffle";
 import { numbersArrayGenerator } from "utils/generators/numbersArrayGenerator";
+import { ILevelConfig } from "typings/types";
 
 interface IExample {
   id: number;
   text: string;
 }
 
-type ExampleType = (maxNumber: number, numbersAmount: number) => IExample[];
+type ExampleType = (config: ILevelConfig) => IExample[];
 
 const generateAddition = (value: number) => {
   let string = `${value}`;
@@ -42,19 +43,19 @@ const checkTwoDigitalElements = (array: Array<number>, numbersAmount: number) =>
   return count;
 };
 
-export const exampleGenerator: ExampleType = (maxNumber, numbersAmount) => {
-  const randArray = shuffle(numbersArrayGenerator(maxNumber));
-  const count = checkTwoDigitalElements(randArray, numbersAmount);
+export const exampleGenerator: ExampleType = config => {
+  const randArray = shuffle(numbersArrayGenerator(config.targetNumber));
+  const count = checkTwoDigitalElements(randArray, config.numbersAmount);
   const indexForExample = Phaser.Math.Between(0, count - 1);
-  const tmpArray = Array.from({ length: numbersAmount }, (item, index) => {
+  const tmpArray = Array.from({ length: config.numbersAmount }, (item, index) => {
     return randArray[index];
   }).sort((a, b) => {
     return a - b;
   });
 
-  return Array.from({ length: numbersAmount }, (item, index) => {
+  return Array.from({ length: config.numbersAmount }, (item, index) => {
     let string = `${tmpArray[index]}`;
-    if (index === indexForExample) {
+    if (index === indexForExample && config.isExpression) {
       string = generateText(tmpArray[index]);
     }
     return {

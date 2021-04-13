@@ -120,6 +120,6 @@ export const SCORE_LABEL_STYLE = {
   fontFamily: "Lato",
   fontWeight: "700",
   fontStyle: "bold",
-  color: "#FdA510",
+  color: "#FDA510",
   align: "center",
 };
