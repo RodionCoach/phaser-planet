@@ -68,7 +68,7 @@ class StartScene extends Phaser.Scene {
     });
     containerButton.add(rulesGameButton);
 
-    SetAudio(this, "background", 1.0, true);
+    SetAudio(this, "background", 0.5, true);
   }
 
   StartGame() {

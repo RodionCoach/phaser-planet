@@ -87,7 +87,7 @@ class EndScene extends Phaser.Scene {
     });
     container.add(buttonReturn);
 
-    SetAudio(this, "gameOver", 1, false);
+    SetAudio(this, "gameOver", 0.5, false);
   }
 
   IsBestScore() {

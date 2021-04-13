@@ -71,7 +71,7 @@ export default class ExampleSpawner extends Phaser.GameObjects.GameObject {
               exampleContainer.sprite.anims.play({
                 key: `disappearancePlanet${exampleContainer.planetTextureNumber}`,
               });
-              SetAudio(this.scene, "click", 0.5);
+              SetAudio(this.scene, "click", 0.2);
             }
           });
       } else {
