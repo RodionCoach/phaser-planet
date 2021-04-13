@@ -18,9 +18,6 @@ declare class GameScene extends Phaser.Scene {
     FormatTime(seconds: number): string;
     SetAnswer(message: Phaser.GameObjects.Image, exampleSpawner: ExampleSpawner): void;
     SpawnObjects(): void;
-    PlaySolvedSound(): void;
-    PlayWrongSound(): void;
-    PlayMissedSound(): void;
     SetScore(): void;
     UpdateScore(scores: number): void;
     ResetGame(): void;
