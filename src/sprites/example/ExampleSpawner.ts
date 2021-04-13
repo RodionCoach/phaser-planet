@@ -1,4 +1,5 @@
 import ExampleContainer from "./ExampleContainer";
+import { SetAudio } from "sceneHooks/SetAudio";
 import { exampleGenerator } from "utils/generators/numbers";
 import { numbersArrayGenerator } from "utils/generators/numbersArrayGenerator";
 import { TOTAL_EXAMPLES, DEPTH_LAYERS } from "utils/constants";
@@ -70,6 +71,7 @@ export default class ExampleSpawner extends Phaser.GameObjects.GameObject {
               exampleContainer.sprite.anims.play({
                 key: `disappearancePlanet${exampleContainer.planetTextureNumber}`,
               });
+              SetAudio(this.scene, "click", 0.5);
             }
           });
       } else {
