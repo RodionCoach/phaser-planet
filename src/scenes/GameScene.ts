@@ -115,9 +115,8 @@ class GameScene extends Phaser.Scene {
 
     this.sound.add("background");
     this.sound.add("wrong");
-    this.sound.add("missed");
     this.sound.add("solved");
-    this.sound.add("ufoBeam");
+    this.sound.add("click");
 
     this.SpawnObjects();
     this.SetScore();
@@ -148,23 +147,13 @@ class GameScene extends Phaser.Scene {
     this.exampleSpawner.orderEventEmitter.on("rightOrder", () => {
       this.UpdateScore(100);
       this.SetAnswer(this.winMessage, this.exampleSpawner);
+      SetAudio(this, "solved", 1);
     });
     this.exampleSpawner.orderEventEmitter.on("wrongOrder", () => {
       this.SetAnswer(this.loseMessage, this.exampleSpawner);
+      SetAudio(this, "wrong", 1);
     });
     this.exampleSpawner.GetExample();
-  }
-
-  PlaySolvedSound() {
-    this.sound.get("solved").play();
-  }
-
-  PlayWrongSound() {
-    this.sound.get("wrong").play();
-  }
-
-  PlayMissedSound() {
-    this.sound.get("missed").play({ volume: 0.5 });
   }
 
   SetScore() {

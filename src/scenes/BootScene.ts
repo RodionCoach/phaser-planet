@@ -1,4 +1,4 @@
-import { PATH_SPRITES } from "utils/constants";
+import { PATH_SPRITES, LOADER_FILL_COLOR } from "utils/constants";
 
 class BootScene extends Phaser.Scene {
   constructor() {
@@ -7,21 +7,18 @@ class BootScene extends Phaser.Scene {
     });
   }
   preload() {
-    const progressBox = this.add.graphics();
     const progress = this.add.graphics();
 
     // Register a load progress event to show a load bar
     this.load.on("progress", (value: number) => {
       progress.clear();
-      progressBox.fillStyle(0xfffffff, 0.8);
-      progress.fillStyle(0xffffff, 1);
+      progress.fillStyle(LOADER_FILL_COLOR, 1);
       progress.fillRect(0, +this.sys.game.config.height / 2, +this.sys.game.config.width * value, 60);
     });
 
     // Register a load complete event to launch the title screen when all files are loaded
     this.load.on("complete", () => {
       progress.destroy();
-      progressBox.destroy();
       this.scene.start("StartScene");
     });
 
@@ -37,12 +34,11 @@ class BootScene extends Phaser.Scene {
     this.load.image("backgroundScore", "./assets/img/Back_background_score.png");
     this.load.image("pause", "./assets/img/pause.png");
 
-    this.load.audio("background", "./assets/sounds/background.mp3");
-    this.load.audio("solved", "./assets/sounds/solved_problem.mp3");
-    this.load.audio("wrong", "./assets/sounds/wrong_answer.mp3");
-    this.load.audio("missed", "./assets/sounds/missed_problem.mp3");
-    this.load.audio("gameOver", "./assets/sounds/end_of_the_game.mp3");
-    this.load.audio("ufoBeam", "./assets/sounds/ufo_beam.mp3");
+    this.load.audio("background", "./assets/sounds/space_back.mp3");
+    this.load.audio("solved", "./assets/sounds/correct.mp3");
+    this.load.audio("wrong", "./assets/sounds/wrong.mp3");
+    this.load.audio("gameOver", "./assets/sounds/end.mp3");
+    this.load.audio("click", "./assets/sounds/click_on_object.mp3");
 
     this.load.glsl("sunShader", "./assets/shaders/sun.glsl");
 
