@@ -24,31 +24,9 @@ export declare const DEPTH_LAYERS: {
 };
 export declare const GAME_HEALTH_POINTS = 5;
 export declare const PATH_SPRITES = "./assets/sprites";
-export declare const OBJECTS_NUMBER_PER_LEVEL: {
-    level0: {
-        numbersAmount: number;
-        targetNumber: number;
-        isExpression: boolean;
-    };
-    level1: {
-        numbersAmount: number;
-        targetNumber: number;
-        isExpression: boolean;
-    };
-    level2: {
-        numbersAmount: number;
-        targetNumber: number;
-        isExpression: boolean;
-    };
-    level3: {
-        numbersAmount: number;
-        targetNumber: number;
-        isExpression: boolean;
-    };
-    level4: {
-        numbersAmount: number;
-        targetNumber: number;
-        isExpression: boolean;
-    };
-};
+export declare const LEVELS: {
+    numbersAmount: number;
+    targetNumber: number;
+    isExpression: boolean;
+}[];
 export declare const TOTAL_EXAMPLES: number;
