@@ -4,6 +4,7 @@ import { SetAudio } from "sceneHooks/SetAudio";
 import SoundButton from "objects/soundButton";
 import { GUIContainer } from "objects/guiContainer";
 import { IInitData } from "typings/types";
+import api from "api";
 
 class EndScene extends Phaser.Scene {
   currentScore: number;
@@ -88,20 +89,14 @@ class EndScene extends Phaser.Scene {
     container.add(buttonReturn);
 
     SetAudio(this, "gameOver", 0.5, false);
+
+    api.onGameOver(this.game, this.currentScore);
   }
 
   IsBestScore() {
-    let prevBestScore = window.localStorage.getItem("best_score");
-    if (prevBestScore === "undefined" || prevBestScore === null) {
-      prevBestScore = "0";
-    }
+    const bestScore = this.registry.get("bestScore");
 
-    if (+prevBestScore < this.currentScore) {
-      window.localStorage.setItem("best_score", `${this.currentScore}`);
-      return "It is your best score!";
-    }
-
-    return `Your best Score is ${prevBestScore}`;
+    return bestScore < this.currentScore ? "It is your best score!" : `Your best Score is ${bestScore}`;
   }
 
   RestartGame() {

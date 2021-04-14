@@ -37,32 +37,27 @@ export const GAME_HEALTH_POINTS = 5;
 
 export const PATH_SPRITES = "./assets/sprites";
 
-export const OBJECTS_NUMBER_PER_LEVEL = {
-  level0: {
+export const LEVELS = [
+  {
     numbersAmount: 3,
     targetNumber: 5, //from 1 to targetNumber
     isExpression: false,
   },
-  level1: {
+  {
     numbersAmount: 3,
     targetNumber: 10, //from 1 to targetNumber
     isExpression: false,
   },
-  level2: {
+  {
     numbersAmount: 3,
     targetNumber: 120, //from 1 to targetNumber
     isExpression: false,
   },
-  level3: {
+  {
     numbersAmount: 4,
     targetNumber: 1000, //from 1 to targetNumber
     isExpression: false,
   },
-  level4: {
-    numbersAmount: 5,
-    targetNumber: 1000, //from 1 to targetNumber
-    isExpression: true,
-  },
-};
+];
 
-export const TOTAL_EXAMPLES = OBJECTS_NUMBER_PER_LEVEL.level4.numbersAmount;
+export const TOTAL_EXAMPLES = LEVELS[3].numbersAmount;
