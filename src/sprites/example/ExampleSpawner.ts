@@ -67,6 +67,7 @@ export default class ExampleSpawner extends Phaser.GameObjects.GameObject {
           .setInteractive({ hitArea: shape, hitAreaCallback: Phaser.Geom.Circle.Contains, useHandCursor: true })
           .on("pointerdown", () => {
             if (this.CheckOrder(examples[index].id)) {
+              exampleContainer.sprite.disableInteractive();
               exampleContainer.textObject.setVisible(false);
               exampleContainer.sprite.anims.play({
                 key: `disappearancePlanet${exampleContainer.planetTextureNumber}`,
