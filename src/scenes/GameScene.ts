@@ -77,22 +77,12 @@ class GameScene extends Phaser.Scene {
     this.add
       .image(0, GAME_RESOLUTION.height, "sun", "sun.png")
       .setOrigin(0, 1.0)
-      .setDepth(DEPTH_LAYERS.three).alpha = 0.85;
+      .setDepth(DEPTH_LAYERS.three).alpha = 0.75;
     this.add
       .image(0, GAME_RESOLUTION.height, "sun", "score.png")
       .setAngle(-10.0)
       .setOrigin(0, 1.0)
       .setDepth(DEPTH_LAYERS.three);
-
-    this.add
-      .shader("sunShader", GAME_RESOLUTION.width / 2, GAME_RESOLUTION.height, GAME_RESOLUTION.width, 120)
-      .setOrigin(0.5, 1.0);
-    this.add.image(0, GAME_RESOLUTION.height, "sun", "sun.png").setOrigin(0, 1.0).setDepth(DEPTH_LAYERS.three);
-    this.add
-      .image(0, GAME_RESOLUTION.height, "sun", "score.png")
-      .setAngle(-10.0)
-      .setOrigin(0, 1.0)
-      .setDepth(DEPTH_LAYERS.three).alpha = 0.75;
 
     this.initialTime = 120;
     const timer = this.time.addEvent({
