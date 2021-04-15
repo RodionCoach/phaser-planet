@@ -1,2 +1,3 @@
-declare const complexitySelector: (grade: number | string) => number;
+import { ILevelConfig } from "typings/types";
+declare const complexitySelector: (grade: number | string) => ILevelConfig;
 export default complexitySelector;
