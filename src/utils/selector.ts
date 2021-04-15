@@ -1,13 +1,11 @@
-const complexitySelector = (grade: number | string): number => {
-  switch (grade) {
-    case 1:
-      return 1;
-    case 2:
-      return 2;
-    case 3:
-      return 3;
-    default:
-      return 1;
+import { LEVELS } from "utils/constants";
+import { ILevelConfig } from "typings/types";
+
+const complexitySelector = (grade: number | string): ILevelConfig => {
+  if (grade <= 4) {
+    return LEVELS[+grade + 1];
+  } else {
+    return LEVELS[0];
   }
 };
 
