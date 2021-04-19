@@ -21,6 +21,15 @@ export interface ILevelConfig {
   targetNumber: number;
   isExpression?: boolean;
 }
+export type GlowObjectType = {
+  glowTask: Phaser.Tweens.Tween;
+} & Phaser.GameObjects.Image &
+  Phaser.GameObjects.Text;
+
+export type GlowPluginType = {
+  add: (object: GlowObjectType) => {};
+  start: Function;
+} & BasePlugin;
 
 export type RandomPlacePluginType = {
   randomPlace: Function;

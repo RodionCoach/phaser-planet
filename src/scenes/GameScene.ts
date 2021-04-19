@@ -4,7 +4,7 @@ import { GAME_RESOLUTION, GAME_HEALTH_POINTS, DEPTH_LAYERS, SOUND_BUTTON_POSITIO
 import { SCORE_LABEL_STYLE, TIMER_STYLE, SCORE_STYLE, PTS_STYLE } from "utils/styles";
 import complexitySelector from "utils/selector";
 import SoundButton from "objects/soundButton";
-import { IScore } from "typings/types";
+import { IScore, GlowObjectType, GlowPluginType } from "typings/types";
 
 class GameScene extends Phaser.Scene {
   currentLifes: number;
@@ -17,6 +17,7 @@ class GameScene extends Phaser.Scene {
   loseMessage: Phaser.GameObjects.Image;
   soundControl: SoundButton;
   score: IScore;
+  scoreBack: GlowObjectType;
 
   constructor() {
     super({
@@ -73,8 +74,16 @@ class GameScene extends Phaser.Scene {
       .image(0, GAME_RESOLUTION.height, "sun", "sun.png")
       .setOrigin(0, 1.0)
       .setDepth(DEPTH_LAYERS.three).alpha = 0.75;
+    this.scoreBack = <GlowObjectType>(
+      this.add
+        .image(0, GAME_RESOLUTION.height, "sun", "score.png")
+        .setAngle(-10.0)
+        .setOrigin(0, 1.0)
+        .setDepth(DEPTH_LAYERS.three)
+    );
+
     this.add
-      .image(0, GAME_RESOLUTION.height, "sun", "score.png")
+      .image(36, GAME_RESOLUTION.height - 14, "blackScore")
       .setAngle(-10.0)
       .setOrigin(0, 1.0)
       .setDepth(DEPTH_LAYERS.three);
@@ -95,8 +104,40 @@ class GameScene extends Phaser.Scene {
       loop: true,
     });
 
-    this.plusPts = this.add.text(71, 458, "", PTS_STYLE).setOrigin(1).setDepth(DEPTH_LAYERS.three).setVisible(false);
-    this.add.text(20, 398, "Score", SCORE_LABEL_STYLE).setOrigin(0).setDepth(DEPTH_LAYERS.three);
+    this.plusPts = this.add.text(71, 440, "", PTS_STYLE).setOrigin(1, 0).setDepth(DEPTH_LAYERS.three).setVisible(false);
+    const scoreLabel = <GlowObjectType>(
+      this.add.text(20, 398, "Score", SCORE_LABEL_STYLE).setOrigin(0).setDepth(DEPTH_LAYERS.three)
+    );
+
+    const postFxPlugin = <GlowPluginType>this.plugins.get("rexGlowFilterPipeline");
+    const scoreBackPipeline = postFxPlugin.add(this.scoreBack);
+    const scoreLabelPipeline = postFxPlugin.add(scoreLabel);
+    this.scoreBack.glowTask = this.scoreBack.scene.tweens.add({
+      targets: [scoreBackPipeline, scoreLabelPipeline],
+      intensity: 0.05,
+      ease: "Linear",
+      duration: 250,
+      repeat: 0,
+      yoyo: true,
+    });
+    this.scoreBack.glowTask.stop();
+
+    const particles = this.add.particles("star");
+    const particleArea = new Phaser.Geom.Rectangle(100, 100, 400, 300);
+    particles.createEmitter({
+      speed: 0,
+      lifespan: { min: 7500, max: 10000 },
+      quantity: 5,
+      frequency: 3750,
+      scale: { min: 0.5, max: 1.5 },
+      blendMode: "ADD",
+      alpha: {
+        onUpdate: (particle, key, t) => {
+          return 0.5 - Math.abs(t - 0.5) * 2.0;
+        },
+      },
+      emitZone: { type: "random", source: <Phaser.Types.GameObjects.Particles.RandomZoneSource>particleArea },
+    });
 
     this.sound.add("background");
     this.sound.add("wrong");
@@ -167,6 +208,16 @@ class GameScene extends Phaser.Scene {
     this.score.pts += scores;
     this.score.textObject.setText(`${this.score.pts}`);
     this.plusPts.setText(`+${scores}`).setVisible(true);
+    this.scoreBack.glowTask.restart();
+    this.tweens.add({
+      targets: this.plusPts,
+      scaleX: 1.4,
+      scaleY: 1.4,
+      duration: 200,
+      yoyo: true,
+      ease: "Quad.easeInOut",
+      repeat: 0,
+    });
     this.time.addEvent({
       delay: 1000,
       callback: () => this.plusPts.setVisible(false),
