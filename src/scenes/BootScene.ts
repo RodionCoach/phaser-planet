@@ -27,12 +27,14 @@ class BootScene extends Phaser.Scene {
     this.load.multiatlas("volume", `${PATH_SPRITES}/button/volume.json`, `${PATH_SPRITES}/button`);
     this.load.multiatlas("gui", `${PATH_SPRITES}/gui/gui.json`, `${PATH_SPRITES}/gui`);
     this.load.multiatlas("sun", `${PATH_SPRITES}/sun/sun.json`, `${PATH_SPRITES}/sun`);
-    this.load.image("backgroundGame", "./assets/img/Back_background.png");
+    this.load.image("backgroundGame", "./assets/img/emptyBack.png");
     this.load.image("backgroundPrimary", "./assets/img/Back_background_primary.png");
     this.load.image("backgroundSecondary", "./assets/img/Back_background_secondary.png");
     this.load.image("backgroundRules", "./assets/img/Back_background_card.png");
     this.load.image("backgroundScore", "./assets/img/Back_background_score.png");
     this.load.image("pause", "./assets/img/pause.png");
+    this.load.image("blackScore", "./assets/img/blackScore.png");
+    this.load.image("star", "./assets/img/Back_star2.png");
 
     this.load.audio("background", "./assets/sounds/space_back.mp3");
     this.load.audio("solved", "./assets/sounds/correct.mp3");
